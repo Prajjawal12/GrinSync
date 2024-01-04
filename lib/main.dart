@@ -10,16 +10,70 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.blue.shade900,
-        body: const Column(
+        body: Column(
           children: [
-            Text('Hello, Welcome Back!'),
-            Text('Login To Continue'),
-            TextField(
+            const Text('Hello, Welcome Back!'),
+            const Text('Login To Continue'),
+            const TextField(
               decoration: InputDecoration(hintText: 'Username'),
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(hintText: 'Password'),
             ),
+            TextButton(
+              onPressed: () {
+                print('clicked');
+              },
+              child: const Text('Forgot Password?'),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              ),
+              onPressed: () {
+                print("Login clicked");
+              },
+              child: const Text('Log In'),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text('Or sign in with'),
+            SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.transparent)),
+              onPressed: () {
+                print('Google Is Clicked');
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/google.png',
+                    width: 22,
+                    height: 22,
+                  ),
+                  Image.asset(
+                    'assets/images/facebook.png',
+                    width: 22,
+                    height: 22,
+                  )
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Text('Don\'t have an account? '),
+                TextButton(onPressed: () {}, child: Text('Sign Up'))
+              ],
+            )
           ],
         ),
       ),
