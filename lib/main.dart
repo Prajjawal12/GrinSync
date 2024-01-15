@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:social_media_app/login_page.dart';
+import 'package:social_media_app/pages/home_page.dart';
+import 'package:social_media_app/pages/login_page.dart';
 import 'package:social_media_app/styles/app_colors.dart';
 
 void main() {
@@ -16,6 +17,11 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
+      initialRoute: '/',
+      routes: {
+        '/login': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
+      },
     );
   }
 }
