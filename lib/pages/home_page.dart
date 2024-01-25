@@ -1,49 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:social_media_app/styles/app_colors.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:social_media_app/components/post_item.dart';
+import 'package:social_media_app/components/toolbar.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final List<String> users = [];
   @override
   Widget build(BuildContext context) {
+    mockUsersFromServer();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.background,
-        title: Text(
-          'Some Title',
-          style: TextStyle(color: Colors.white),
-        ),
-        actions: [Icon(Icons.location_on_outlined)],
+      appBar: ToolBar(
+        title: 'GrinSync',
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset('assets/svg/ic_location.svg'),
+          ),
+        ],
       ),
-      body: ListView(
-        children: mockUsersFromServer(),
+      body: ListView.separated(
+        itemBuilder: (context, index) {
+          return PostItem(user: users[index]);
+        },
+        itemCount: users.length,
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            height: 26,
+          );
+        },
       ),
     );
   }
 
-  Widget _userItem() {
-    return Row(
-      children: [
-        Image.asset(
-          'assets/temp/dummy_profile.jpeg',
-          width: 40,
-          height: 40,
-        ),
-        SizedBox(
-          width: 16,
-        ),
-        Text(
-          'Professor Ding Dong',
-          style: TextStyle(color: Colors.pink),
-        ),
-      ],
-    );
-  }
-
-  List<Widget> mockUsersFromServer() {
-    List<Widget> users = [];
+  mockUsersFromServer() {
     for (var i = 0; i < 10; i++) {
-      users.add(_userItem());
+      users.add('User number $i');
     }
-    return users;
   }
 }

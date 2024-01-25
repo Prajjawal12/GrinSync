@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:social_media_app/pages/home_page.dart';
+import 'package:social_media_app/config/app_routes.dart';
+import 'package:social_media_app/config/app_strings.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -17,7 +18,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 Spacer(),
                 const Text(
-                  'Hello, Welcome Back!',
+                  AppStrings.helloWelcome,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
@@ -28,13 +29,13 @@ class LoginPage extends StatelessWidget {
                   height: 15,
                 ),
                 const Text(
-                  'Login To Continue',
+                  AppStrings.loginToContinue,
                   style: TextStyle(color: Colors.white),
                 ),
                 Spacer(),
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Username',
+                    hintText: AppStrings.username,
                     border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(12),
@@ -49,7 +50,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Password',
+                    hintText: AppStrings.password,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(12),
@@ -69,7 +70,7 @@ class LoginPage extends StatelessWidget {
                       print('clicked');
                     },
                     style: TextButton.styleFrom(foregroundColor: Colors.white),
-                    child: const Text('Forgot Password?'),
+                    child: const Text(AppStrings.forgotPassword),
                   ),
                 ),
                 Spacer(),
@@ -84,7 +85,8 @@ class LoginPage extends StatelessWidget {
                         //     .push(MaterialPageRoute(builder: (context) {
                         //   return HomePage();
                         // }));
-                        Navigator.of(context).pushReplacementNamed('/home');
+                        Navigator.of(context)
+                            .pushReplacementNamed(AppRoutes.main);
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green),
@@ -97,7 +99,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 Spacer(),
                 Text(
-                  'Or sign in with',
+                  AppStrings.orSignInWith,
                   style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
@@ -127,7 +129,7 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         width: 8,
                       ),
-                      const Text('Login With Google')
+                      const Text(AppStrings.loginWithGoogle)
                     ],
                   ),
                 ),
@@ -156,7 +158,7 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         width: 8,
                       ),
-                      const Text('Login With Facebook')
+                      const Text(AppStrings.loginWithFacebook)
                     ],
                   ),
                 ),

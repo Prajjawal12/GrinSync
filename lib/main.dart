@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:social_media_app/pages/home_page.dart';
+import 'package:social_media_app/config/app_routes.dart';
+
 import 'package:social_media_app/pages/login_page.dart';
 import 'package:social_media_app/styles/app_colors.dart';
 
@@ -12,16 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: 'Urbanist',
-        scaffoldBackgroundColor: AppColors.background,
-      ),
+          fontFamily: 'Urbanist',
+          scaffoldBackgroundColor: AppColors.background,
+          brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
-      initialRoute: '/',
-      routes: {
-        '/login': (context) => LoginPage(),
-        '/home': (context) => HomePage(),
-      },
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
     );
   }
 }
