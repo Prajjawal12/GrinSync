@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.background,
           brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const LoginPage(),
       initialRoute: AppRoutes.login,
       routes: AppRoutes.pages,
     );

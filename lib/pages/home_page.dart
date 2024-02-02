@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:social_media_app/components/post_item.dart';
 import 'package:social_media_app/components/toolbar.dart';
+import 'package:social_media_app/config/app_routes.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> users = [];
@@ -13,7 +14,9 @@ class HomePage extends StatelessWidget {
         title: 'GrinSync',
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.location);
+            },
             icon: SvgPicture.asset('assets/svg/ic_location.svg'),
           ),
         ],
